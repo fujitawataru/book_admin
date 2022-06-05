@@ -1,4 +1,7 @@
 class BooksController < ApplicationController
+  protect_from_forgery except: [:destroy]
+  before_action :set_book, only: [:show, :destroy]
+
   def show
     render :show
     # @book = Book.find(params[:id])
@@ -7,7 +10,7 @@ class BooksController < ApplicationController
     #     format.json
     # end
   end
-  
+
   def destroy
     # @book = Book.find(params[:id])
     @book.destroy
@@ -16,11 +19,11 @@ class BooksController < ApplicationController
         format.json { head :no_content }
     end
   end
-  
+
   private
-  
+
   def set_book
     @book = Book.find(params[:id])
   end
-  
+
 end

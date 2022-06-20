@@ -3,7 +3,7 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :destroy]
 
   def show
-    render :show
+    # render :show renderを省略しても暗黙的にrender アクション名と解釈されエラーとならない
     # @book = Book.find(params[:id])
     # respond_to do |format|
     #   format.html
